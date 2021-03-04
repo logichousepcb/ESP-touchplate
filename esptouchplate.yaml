@@ -1,0 +1,80 @@
+esphome:
+  name: gspanel
+  platform: ESP8266
+  board: d1_mini
+
+wifi:
+  ssid: "youssid"
+  password: "youpassword"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Gspanel Fallback Hotspot"
+    password: "lxuO4fuJ4o5t"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+mqtt:
+  broker: 192.168.1.130
+  username: ********
+  password: ********
+  
+i2c:
+  sda: D2
+  scl: D1
+  scan: True
+  id: bus_b
+
+binary_sensor:
+  - platform: gpio
+    pin: 
+      number: D5
+      mode: INPUT_PULLUP
+      inverted: FALSE
+    name: 'GS Button 1'
+    id: b1
+  - platform: gpio
+    pin: 
+      number: D6
+      mode: INPUT_PULLUP
+      inverted: FALSE
+    name: 'GS Button 2'
+    id: b2
+##############################################
+font:
+  - file: 'times-new-roman.ttf'
+    id: font1
+    size: 20
+  - file: 'times-new-roman.ttf'
+    id: font2
+    size: 15   
+
+
+ 
+display:
+    
+  - platform: ssd1306_i2c
+    model: "SSD1306 128x64"
+    address: 0x3C
+    lambda: |-
+      it.printf(30, 5, id(font1), "VENT");
+      it.printf(15, 20, id(font1), "CONTROL");
+      it.printf(10, 50, id(font2), "OPEN");
+      it.printf(80, 50, id(font2), "CLOSE");
+      if (id(b1).state) {
+        it.printf(10, 35, id(font2),"..........");
+      } else {
+      it.printf(10, 35, id(font2),"          ");
+      };
+      if (id(b2).state) {
+        it.printf(80, 35, id(font2),"..............");
+      } else {
+      it.printf(80, 35, id(font2),"              ");
+      };
