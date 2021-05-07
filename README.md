@@ -6,4 +6,8 @@ I have the .STL file to 3D print an enclosure that fits in a decora switch plate
 
 ESPHome example YAML is included but I do plan to create MQTT control via arduibo sketch in the near future.
 
-![GitHub Logo](https://github.com/logichousepcb/WT32-ETH01-FTDI-ADAPTER/blob/main/WT32-ETH01_adapter.PNG)
+![GitHub Logo](https://github.com/logichousepcb/ESP-touchplate)
+![GitHub Logo](https://github.com/logichousepcb/ESP-touchplate)
+![GitHub Logo](https://github.com/logichousepcb/ESP-touchplate)
+![GitHub Logo](https://github.com/logichousepcb/ESP-touchplate)
+
