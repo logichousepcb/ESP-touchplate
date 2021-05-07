@@ -6,5 +6,5 @@ I have the .STL file to 3D print an enclosure that fits in a decora switch plate
 
 ESPHome example YAML is included but I do plan to create MQTT control via arduibo sketch in the near future.
 
-![GitHub Logo](https://github.com/logichousepcb/ESP-touchplate/blob/main/LCD_2Button_Decora.PNG)
+![GitHub Logo](https://github.com/logichousepcb/ESP-touchplate/blob/main/LCD_2Button_Decora_Collection.PNG)
 
