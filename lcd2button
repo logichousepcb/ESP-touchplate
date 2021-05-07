@@ -1,0 +1,84 @@
+esphome:
+  name: lcd2button
+  platform: ESP8266
+  board: d1_mini
+
+wifi:
+  ssid: "YOUR_SSID"
+  password: "YOUR_PASSWORD"
+
+captive_portal:
+
+web_server:
+  port: 80
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+i2c:
+  sda: D2
+  scl: D1
+  scan: True
+  id: bus_b
+
+binary_sensor:
+  - platform: gpio
+    pin: 
+      number: D5
+      mode: INPUT_PULLUP
+      inverted: FALSE
+    name: 'GP1 Button 1'
+    id: b1
+  - platform: gpio
+    pin: 
+      number: D6
+      mode: INPUT_PULLUP
+      inverted: FALSE
+    name: 'GP1 Button 2'
+    id: b2
+##############################################
+font:
+  - file: 'times-new-roman.ttf'
+    id: font1
+    size: 20
+  - file: 'times-new-roman.ttf'
+    id: font2
+    size: 15   
+
+
+ 
+display:
+    
+  - platform: ssd1306_i2c
+    model: "SSD1306 128x64"
+    address: 0x3C
+    lambda: |-
+      it.printf(30, 5, id(font1), "GARAGE");
+      it.printf(15, 20, id(font1), " CONTROL");
+      it.printf(10, 50, id(font2), "FRONT");
+      it.printf(80, 50, id(font2), "BACK");
+      if (id(b1).state) {
+        it.printf(10, 35, id(font2),"..........");
+      } else {
+      it.printf(10, 35, id(font2),"          ");
+      };
+      if (id(b2).state) {
+        it.printf(80, 35, id(font2),"..............");
+      } else {
+      it.printf(80, 35, id(font2),"              ");
+      };
+#      it.printf(30, 28, id(font1), " %s", id(ventsensor).state.c_str());
+#      it.printf(10, 50,id(font2),"%.1fc", id(temp).state);
+#      it.printf(90, 50,id(font2),"%.1f  ", id(hum).state);
+#      std::string val = id(lh_uptime_human).state;
+     
+      
+#text_sensor:
+#  - platform: homeassistant
+#    id: alarmstatus
+#    entity_id: alarm_control_panel.home_alarm
+####################################################
