@@ -16,5 +16,5 @@ If you want some of these boards, contact me for a good deal or the gerber.  Thi
 
 ** I have a new version in the works that will use passive POE and an RJ45 connector to power
 
-![GitHub Logo](https://github.com/logichousepcb/ESP-touchplate/blob/main/esptouchplate.jpg)
+![GitHub Logo](https://github.com/logichousepcb/ESP-touchplate/blob/main/esptouchplate.JPG)
 
